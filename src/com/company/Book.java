@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Book {
 
+    private ArrayList<Book> library;
     private ArrayList<Chapters> chapters;
     private ArrayList<Pages> pages;
     private String title;
@@ -13,6 +14,7 @@ public class Book {
 
     public Book()
     {
+        library = new ArrayList<Book>();
         chapters = new ArrayList<Chapters>();
         pages = new ArrayList<Pages>();
         this.title = title;
@@ -22,6 +24,11 @@ public class Book {
 
     public String getTitle() {
         return title;
+    }
+
+    public ArrayList<Book> getLibrary()
+    {
+        return library;
     }
 
     public void setTitle(String title) {

@@ -1,10 +1,14 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        ArrayList<Book> library = new ArrayList<Book>();
+
 
         Book myBook = new Book();
         Chapters myChapters = new Chapters();
@@ -12,6 +16,8 @@ public class Main {
 
         Book book1 = new Book();
         book1.setTitle("Book title: Fun Times at Java Boot Camp");
+        library.add(book1);
+
 
         Chapters chapter1 = new Chapters();
         chapter1.setTitle("Chapter 1: The Crazy Instructors");
@@ -24,13 +30,19 @@ public class Main {
         Pages page2 = new Pages();
         page2.setPage("Page 2: Fun with Fi");
         book1.addPage(page2);
-        
 
-            for (Chapters c : myBook.getChapters()) {
-                System.out.println(c.getTitle());
-                System.out.println(c.getPage());
-                System.out.println(page1.getPage());
-                System.out.println(page2.getPage());
+
+            for (Book book: library)
+            {
+                System.out.println(book.getTitle());
+
+
+                for (Chapters c : myBook.getChapters()) {
+                    System.out.println(c.getTitle());
+                    System.out.println(c.getPage());
+                    System.out.println(page1.getPage());
+                    System.out.println(page2.getPage());
+                }
             }
 
 
@@ -39,22 +51,28 @@ public class Main {
 
         Scanner keyboard = new Scanner(System.in);
 
-
         do {
             System.out.println("Do you want to add another chapter?:");
             answer = keyboard.nextLine();
             System.out.println("Enter chapter title:");
             answer = keyboard.nextLine();
+            System.out.println("Do you want to add another page?:");
+            answer = keyboard.nextLine();
+            System.out.println("Enter page title:");
+            answer = keyboard.nextLine();
+            library.add(book1);
+        } while (answer.equalsIgnoreCase("y") || !answer.equalsIgnoreCase("n"));
 
-            do {
-                System.out.println("Do you want to add another page?:");
-                answer = keyboard.nextLine();
-                System.out.println("Enter page title:");
-                answer = keyboard.nextLine();
-
-            } while (answer.equalsIgnoreCase("y"));
-        } while (answer.equalsIgnoreCase("y"));
+                for(Book book: library)
+                {
+                    System.out.println(book1.getTitle());
+                    System.out.println(" ");
+                    System.out.println(book1.getChapters());
+                    System.out.println(book1.getPages());
+                    System.out.println(" ");
+                }
+             }
     }
-}
+
 
 
